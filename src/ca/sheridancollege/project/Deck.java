@@ -6,6 +6,7 @@ package ca.sheridancollege.project;
  * @author Cheng Lian
  */
 public class Deck {
+    //datafields
     private char suit;
     private int value;
     
