@@ -1,6 +1,14 @@
 package GarbageCardGame;
 
+/**
+ * This class contains the value and suits of a deck of cards
+ * 
+ * author: Cheng Lian 
+ * Created: March 12, 2021 
+ * Last updated: March 21, 2021
+ */
 public abstract class Card {
+//enum datafield: value
 
     private enum value {
         DEUCE,
@@ -18,6 +26,7 @@ public abstract class Card {
         ACE
     }
 
+//enum datafield: suits
     private enum suits {
         CLUBS,
         DIAMONDS,
