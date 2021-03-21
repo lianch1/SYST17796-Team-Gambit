@@ -11,7 +11,7 @@ package GarbageCardGame;
 public final class Card {
     
     //enum datafield: suits
-    private enum Suit {
+    public enum Suit {
         CLUBS, 
         DIAMONDS, 
         HEARTS, 
@@ -19,7 +19,7 @@ public final class Card {
     }
     
     //enum datafield: suits
-    private enum Value {
+    public enum Value {
         ACE,
         DEUCE, 
         THREE, 
@@ -39,12 +39,13 @@ public final class Card {
     final Suit suit;
 
 // Card Constructor
-    private Card(final Value value, final Suit suit) {
+    Card(final Value value, final Suit suit) {
         this.value = value;
         this.suit = suit;
     }
 
 // toString method
+    @Override
     public String toString() {
         return String.format("%s of %s", value, suit);
     }
@@ -57,6 +58,8 @@ public final class Card {
     public Suit getSuit() {
         return suit;
     }
+    
+    
 // method for retriving card value in integer type  
     public int getValueNumber(){
         
