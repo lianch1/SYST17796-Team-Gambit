@@ -11,18 +11,16 @@ import java.util.Random;
  */
 
 public class Deck {
-
-    //create a deck of cards
-    public void Deck() {
-
-        ArrayList<Card> Deck = new ArrayList<Card>();
-
+       
+    //create a deck of cards     
+    Deck(ArrayList<Card> Deck) {
         for (Card.Suit suit : Card.Suit.values()) {
             for (Card.Value value : Card.Value.values()) {
                 Deck.add(new Card(value, suit));
+                
             }
         }
-    }       
+    }    
 
     //method to swap card positions in the deck
     public void swapCard(int index1, int index2, ArrayList<Card> Deck){
@@ -32,9 +30,7 @@ public class Deck {
         Deck.set(index1, Deck.get(index2));
         Deck.set(index2, placeholder);                
     }
-    
-
-        
+            
     //shuffle a deck of cards
     public void shuffle(ArrayList<Card> Deck) {
         Random randomNumber = new Random();

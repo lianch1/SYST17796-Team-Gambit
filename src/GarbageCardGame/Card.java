@@ -15,7 +15,7 @@ public final class Card {
         CLUBS, 
         DIAMONDS, 
         HEARTS, 
-        SPADES
+        SPADES;
     }
     
     //enum datafield: suits
@@ -32,7 +32,7 @@ public final class Card {
         TEN, 
         JACK, 
         QUEEN, 
-        KING
+        KING;
     }
 
     final Value value;
