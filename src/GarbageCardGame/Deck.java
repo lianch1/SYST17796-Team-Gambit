@@ -1,5 +1,6 @@
 package GarbageCardGame;
 import java.util.*;
+import java.util.Random;
 
 /**
  * This class contains allows the creation and manipulation of the deck
@@ -24,7 +25,7 @@ public class Deck {
     }       
 
     //method to swap card positions in the deck
-    public void swapCards(int index1, int index2, ArrayList<Card> Deck){
+    public void swapCard(int index1, int index2, ArrayList<Card> Deck){
         Card placeholder;
         
         placeholder = Deck.get(index1);
@@ -35,13 +36,13 @@ public class Deck {
 
         
     //shuffle a deck of cards
-    public void shuffle() {
-        // TODO - implement Deck.shuffle
-        throw new UnsupportedOperationException();
+    public void shuffle(ArrayList<Card> Deck) {
+        Random randomNumber = new Random();
+        for (int i = 0; i < Deck.size(); i++){
+            for (int j = 0; j < Deck.size(); j++){
+                swapCard(i, randomNumber.nextInt(52), Deck);
+            }
+        }
     }
     
-
-
-
-
 }
