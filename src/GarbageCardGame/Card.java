@@ -2,60 +2,56 @@ package GarbageCardGame;
 
 public abstract class Card {
 
-	private char suit;
-	private int value;
-	private SUIT mySuit;
-	private VALUE myValue;
+    private enum value {
+        DEUCE,
+        THREE,
+        FOUR,
+        FIVE,
+        SIX,
+        SEVEN,
+        EIGHT,
+        NINE,
+        TEN,
+        JACK,
+        QUEEN,
+        KING,
+        ACE
+    }
 
-	public void Deck() {
-		// TODO - implement Card.Deck
-		throw new UnsupportedOperationException();
-	}
+    private enum suits {
+        CLUBS,
+        DIAMONDS,
+        HEARTS,
+        SPADES
+    }
 
-	/**
-	 * 
-	 * @param newSuit
-	 * @param newValue
-	 */
-	public void Deck(char newSuit, int newValue) {
-		// TODO - implement Card.Deck
-		throw new UnsupportedOperationException();
-	}
-
-	public char getSuit() {
-		return this.suit;
-	}
-
-	public int getValue() {
-		return this.value;
-	}
-
-	public String getValueString() {
-		// TODO - implement Card.getValueString
-		throw new UnsupportedOperationException();
-	}
-
-	public String toString() {
-		// TODO - implement Card.toString
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param deck
-	 */
-	public boolean compareSuit(Card deck) {
-		// TODO - implement Card.compareSuit
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param deck
-	 */
-	public boolean compareValue(Card deck) {
-		// TODO - implement Card.compareValue
-		throw new UnsupportedOperationException();
-	}
-
+//	public char getSuit() {
+//		return this.suit;
+//	}
+//
+//	public int getValue() {
+//		return this.value;
+//	}
+//
+//	public String getValueString() {
+//		// TODO - implement Card.getValueString
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public String toString() {
+//		// TODO - implement Card.toString
+//		throw new UnsupportedOperationException();
+//	}
+//
+//
+//	public boolean compareSuit(Card deck) {
+//		// TODO - implement Card.compareSuit
+//		throw new UnsupportedOperationException();
+//	}
+//
+//
+//	public boolean compareValue(Card deck) {
+//		// TODO - implement Card.compareValue
+//		throw new UnsupportedOperationException();
+//	}
 }
