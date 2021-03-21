@@ -57,6 +57,54 @@ public final class Card {
     public Suit getSuit() {
         return suit;
     }
+// method for retriving card value in integer type  
+    public int getValueNumber(){
+        
+        int valueNumber = 0;
+        
+        switch (this.value){
+            case ACE:
+                valueNumber = 1;
+                break;
+            case DEUCE:
+                valueNumber = 2;
+                break;
+            case THREE:
+                valueNumber = 3;
+                break;
+            case FOUR:
+                valueNumber = 4;
+                break;
+            case FIVE:
+                valueNumber = 5;
+                break;
+            case SIX:
+                valueNumber = 6;
+                break;
+            case SEVEN:
+                valueNumber = 7;
+                break;
+            case EIGHT:
+                valueNumber = 8;
+                break;
+            case NINE:
+                valueNumber = 9;
+                break;
+            case TEN:
+                valueNumber = 10;
+                break;
+            case JACK:
+                valueNumber = 11;
+                break;
+            case QUEEN:
+                valueNumber = 12;
+                break;
+            case KING:
+                valueNumber = 13;
+                break;
+        }
+        return valueNumber;
+    }
        
     
 }
