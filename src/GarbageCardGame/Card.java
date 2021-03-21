@@ -1,5 +1,6 @@
 package GarbageCardGame;
 
+
 /**
  * This class contains the value and suits of a deck of cards
  * 
@@ -8,7 +9,7 @@ package GarbageCardGame;
  * Last updated: March 21, 2021
  */
 
-public final class Card {
+public abstract class Card {
     
     //enum datafield: suits
     public enum Suit {
