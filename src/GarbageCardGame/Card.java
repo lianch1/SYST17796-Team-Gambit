@@ -45,8 +45,18 @@ public final class Card {
     }
 
 // toString method
-    @Override
     public String toString() {
         return String.format("%s of %s", value, suit);
     }
+    
+// getters and setters
+    public Value getValue() {
+        return value;
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+       
+    
 }
