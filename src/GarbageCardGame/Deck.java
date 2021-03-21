@@ -1,13 +1,17 @@
 package GarbageCardGame;
 
+/**
+ * This class contains allows the creation and manipulation of the deck
+ * 
+ * author: Cheng Lian 
+ * Created: March 12, 2021 
+ * Last updated: March 21, 2021
+ */
+
 public class Deck {
 
-	private ArrayList<Card> deck;
-	private ArrayList<Card> discard;
-
 	public Deck() {
-		// TODO - implement Deck.Deck
-		throw new UnsupportedOperationException();
+
 	}
 
 	public void shuffle() {
