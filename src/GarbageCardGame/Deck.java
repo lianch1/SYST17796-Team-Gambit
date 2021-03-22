@@ -33,7 +33,7 @@ public class Deck {
     //
     
     //method to swap card positions in the deck
-    public void swapCard(int index1, int index2, ArrayList<Card> deck){
+    public void swapCard(int index1, int index2){
         Card placeholder;
         
         placeholder = deck.get(index1);
@@ -42,11 +42,11 @@ public class Deck {
     }
             
     //shuffle a deck of cards
-    public void shuffle(ArrayList<Card> deck) {
+    public void shuffle() {
         Random randomNumber = new Random();
         for (int i = 0; i < deck.size(); i++){
             for (int j = 0; j < deck.size(); j++){
-                swapCard(i, randomNumber.nextInt(52), deck);
+                swapCard(i, randomNumber.nextInt(52));
             }
         }
     }
