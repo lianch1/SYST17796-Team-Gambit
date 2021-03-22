@@ -8,40 +8,39 @@ package GarbageCardGame;
  * Last updated: March 22, 2021
  */
 
-public final class Card {
+public class Card {
     
-    private Value values;
-    private Suit suits;
+    private Value value;
+    private Suit suit;
     private boolean isFaceUp;
 
 // Card Constructor
-    public Card(Value values, Suit suits) {
-        this.values = values;
-        this.suits = suits;
-        isFaceUp = false;
+    public Card(Value value, Suit suit) {
+        this.value = value;
+        this.suit = suit;
+        isFaceUp = true;
     }
     
 // getters and setters
     public int getValueNumber() {
-        return values.getValueNumber();
+        return value.getValueNumber();
     }
     
     public String getValueString(){
-        return values.getValueString();
+        return value.getValueString();
     }
 
     public String getSuit() {
-        return suits.printSuit();
+        return suit.printSuit();
     }
 //toString method
-
     public String toString() {
         String txt = "";
-        if (isFaceUp) {
-            txt += "\n" + values.getValueString() + " of " + suits.printSuit();
+        if (isFaceUp){
+            txt += "\n" + value.getValueString() + " of " + suit.printSuit();
             return txt;
         } else {
-            txt = "Card is Faced down";
+            txt = "\nCard is Faced down ";
         }
         return txt;
     }

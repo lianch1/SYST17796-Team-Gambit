@@ -3,11 +3,11 @@ import java.util.*;
 import java.util.Random;
 
 /**
- * This class contains allows the creation and manipulation of the deck
+ * This class allows the creation and manipulation of the deck
  * 
  * author: Cheng Lian 
  * Created: March 12, 2021 
- * Last updated: March 21, 2021
+ * Last updated: March 22, 2021
  */
 
 public class Deck {
@@ -29,23 +29,34 @@ public class Deck {
         }    
     }
 
+    //
+    
     //method to swap card positions in the deck
-    public void swapCard(int index1, int index2, ArrayList<Card> Deck){
+    public void swapCard(int index1, int index2, ArrayList<Card> deck){
         Card placeholder;
         
-        placeholder = Deck.get(index1);
-        Deck.set(index1, Deck.get(index2));
-        Deck.set(index2, placeholder);                
+        placeholder = deck.get(index1);
+        deck.set(index1, deck.get(index2));
+        deck.set(index2, placeholder);                
     }
             
     //shuffle a deck of cards
-    public void shuffle(ArrayList<Card> Deck) {
+    public void shuffle(ArrayList<Card> deck) {
         Random randomNumber = new Random();
-        for (int i = 0; i < Deck.size(); i++){
-            for (int j = 0; j < Deck.size(); j++){
-                swapCard(i, randomNumber.nextInt(52), Deck);
+        for (int i = 0; i < deck.size(); i++){
+            for (int j = 0; j < deck.size(); j++){
+                swapCard(i, randomNumber.nextInt(52), deck);
             }
         }
+    }
+    
+    //show card
+    public String showCard(){
+        String txt = "";
+        for (Card showCard: deck){
+            txt += showCard.toString();                       
+        }
+        return txt;
     }
     
 }
