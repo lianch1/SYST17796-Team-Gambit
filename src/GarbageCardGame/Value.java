@@ -1,6 +1,12 @@
-
 package GarbageCardGame;
 
+/**
+ * This enumeration contains card values
+ * 
+ * author: Cheng Lian 
+ * Created: March 12, 2021 
+ * Last updated: March 22, 2021
+ */
 
 public enum Value {
     ACE(1, "Ace"),
