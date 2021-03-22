@@ -13,6 +13,7 @@ public class DeckTest {
     public static void main(String[] args) {
         Deck d1 = new Deck();
         d1.createDeck();
+        d1.shuffle();
         System.out.println("Deck has the following cards: " + d1.showCard());
     }
 }
