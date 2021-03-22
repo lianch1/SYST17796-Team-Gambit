@@ -9,7 +9,7 @@ package GarbageCardGame;
  *
  * @author xiaoh
  */
-public enum Suits {
+public enum Suit {
         //enum datafield: suits
         CLUBS("Clubs"), 
         DIAMONDS("Diamonds"), 
@@ -19,7 +19,7 @@ public enum Suits {
         private final String suitString;
         
         // Constructor
-        private Suits(String suitString){
+        private Suit(String suitString){
             this.suitString = suitString;
     }
         
