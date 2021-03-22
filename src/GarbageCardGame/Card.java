@@ -10,12 +10,12 @@ package GarbageCardGame;
 
 public final class Card {
     
-    private Values values;
-    private Suits suits;
+    private Value values;
+    private Suit suits;
     private boolean isFaceUp;
 
 // Card Constructor
-    public Card(Values values, Suits suits) {
+    public Card(Value values, Suit suits) {
         this.values = values;
         this.suits = suits;
         isFaceUp = false;
