@@ -2,7 +2,7 @@
 package GarbageCardGame;
 
 
-public enum Values {
+public enum Value {
     ACE(1, "Ace"),
     DEUCE(2, "Deuce"),
     THREE(3, "3"),
@@ -22,7 +22,7 @@ public enum Values {
     private final String valueString;
     
     //Constructor
-    private Values(int valueNumber, String valueString){
+    private Value(int valueNumber, String valueString){
         this.valueNumber = valueNumber;
         this.valueString = valueString;
     }
