@@ -101,8 +101,4 @@ public abstract class Player {
     
     
 
-}// End of the class
-
-//Popup welcome window
-// JOptionPane.showMessageDialog(null, "Welcome to Garbage Game, " + playerID + "!", "Welcome", JOptionPane.PLAIN_MESSAGE);
-//System.out.println("Welcome to Garbage Game, " + this.playerID + "!");
+}
