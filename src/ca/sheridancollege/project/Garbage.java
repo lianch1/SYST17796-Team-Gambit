@@ -56,7 +56,7 @@ public class Garbage {
     }
     
     
-    public String declareWinner(){
+    public String declareWinner(Player player){
         String winner = "declare winner";
         return winner;
     }
