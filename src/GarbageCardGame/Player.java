@@ -91,7 +91,7 @@ public abstract class Player {
 
     /**
      * The method is to add validated player name into ArrayList playerName
-     * 
+     * to check if the name is existing
      * @param playerID 
      */
     public void addName(String playerID) {
