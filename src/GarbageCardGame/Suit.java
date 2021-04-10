@@ -1,16 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GarbageCardGame;
 
+/**
+ * 
+ * @author Cheng Lian April 10, 2021
+ */
 public enum Suit {
         //enum datafield: suits
         CLUBS("Clubs"), 
         DIAMONDS("Diamonds"), 
         HEARTS("Hearts"), 
-        SPADES("Clubs");
+        SPADES("Spades");
         
         private final String suitString;
         

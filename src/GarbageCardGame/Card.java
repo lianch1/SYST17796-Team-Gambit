@@ -1,9 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GarbageCardGame;
+
+/**
+ * @author dancye
+ * @author Cheng Lian April 10, 2021
+ */
 public class Card {
     
     private Value value;
@@ -29,6 +29,11 @@ public class Card {
     public String getSuit() {
         return suit.printSuit();
     }
+
+    public boolean isFaceUp() {
+        return faceUp;
+    }
+    
 //toString method
     public String toString() {
         String txt = "";

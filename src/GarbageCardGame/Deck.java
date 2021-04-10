@@ -64,6 +64,19 @@ public class Deck {
         return txt;
     }
     
+    
+    //draw card
+    //drawn card is faced up
+    public Card drawCard(){
+        Card drawnCard = deck.get(0);        
+        deck.remove(0);
+        //System.out.println(drawnCard.toString());
+        return drawnCard;
+    }
+    
+
+    
+    
     // need to add sequence filler for each player
     // or we couyld simply just get rid of 10 cards from the deck for the sequence and make the sequence the boolean list (I prefer this).
 

@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GarbageCardGame;
 import java.util.ArrayList;
-import javax.swing.*;
 
 /**
- *
+ * @author Fei Wei
  * @author Jaeyoung
  */
 public class Player {
@@ -16,8 +10,8 @@ public class Player {
     private final String playerID; //unique ID
     private int score; // unique score
     public static ArrayList<String> playerName = new ArrayList<String>(); // arrayList of playerName
-    private Sequence sequence; //unique sequence (players cant share a sequence).
-    private boolean[] bool_sequence = new boolean[10]; // booleans for sequence
+    //private Sequence sequence; //unique sequence (players cant share a sequence).
+    //private boolean[] bool_sequence = new boolean[10]; // booleans for sequence
     
     
     public Player(String name) {
@@ -33,15 +27,15 @@ public class Player {
     public String getPlayerID() {
         return this.playerID;
     }
-    public Sequence getSequence(){
-        return this.sequence;
-    }
-    public boolean[] getBoolSequence(){
-        return bool_sequence;
-    }
-    public boolean getWhat(int i){
-        return bool_sequence[i];
-    }
+//    public Sequence getSequence(){
+//        return this.sequence;
+//    }
+//    public boolean[] getBoolSequence(){
+//        return bool_sequence;
+//    }
+//    public boolean getWhat(int i){
+//        return bool_sequence[i];
+//    }
     
     
     public static boolean isDuplicate(String playerID) {
@@ -94,4 +88,7 @@ public class Player {
         System.out.println("You have decided to fill spot # " + spot);
         sequence[spot] = true;
     }
+    
+    
+    
 }
