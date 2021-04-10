@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package GarbageCardGame;
 import java.util.*;
 import java.util.Random;
@@ -10,6 +15,7 @@ import java.util.Random;
  * Last updated: March 22, 2021
  */
 
+// we are going to need to make 2 decks (one normal deck, and one for discard)
 public class Deck {
     
     private ArrayList<Card> deck;
@@ -21,14 +27,13 @@ public class Deck {
     
     //create a deck of cards
     public void createDeck(){
-    
         for (Suit suit : Suit.values()) {
             for (Value value : Value.values()) {
                 deck.add(new Card(value, suit));                
             }
         }    
     }
-
+    
     //
     
     //method to swap card positions in the deck
@@ -59,4 +64,14 @@ public class Deck {
         return txt;
     }
     
+    // need to add sequence filler for each player
+    // or we couyld simply just get rid of 10 cards from the deck for the sequence and make the sequence the boolean list (I prefer this).
+
+    
+    
+    
+    // get method
+    Card get(int i) {
+        return deck.get(i);
+    }
 }

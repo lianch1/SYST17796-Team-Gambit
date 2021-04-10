@@ -1,66 +1,49 @@
-package GarbageCardGame;
-/**
- * @author Fei Wei Mar,31 2021
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+package GarbageCardGame;
 import java.util.ArrayList;
 import javax.swing.*;
 
 /**
- * A class that models each Player in the game. Players have an identifier,
- * which should be unique.
  *
- * @author dancye
- * @author Fei Wei, Mar,29 2021
+ * @author Jaeyoung
  */
-public abstract class Player {
-
-    //Fields
-    private final String playerID; //the unique ID for this player
-    private int score;
-    public static ArrayList<String> playerName = new ArrayList<String>();
-
-    /**
-     * A constructor that sets the player's ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
+public class Player {
+    
+    private final String playerID; //unique ID
+    private int score; // unique score
+    public static ArrayList<String> playerName = new ArrayList<String>(); // arrayList of playerName
+    private Sequence sequence; //unique sequence (players cant share a sequence).
+    private boolean[] bool_sequence = new boolean[10]; // booleans for sequence
+    
+    
     public Player(String name) {
         playerID = name;
     }
-
-    /**
-     * @return the score
-     */
+    
     public int getScore() {
         return score;
     }
-
-    /**
-     * @param updateSore the score to set
-     */
     public void setScore(int updateSore) {
         this.score = updateSore;
     }
-
-    /**
-     * @return the playerID
-     */
     public String getPlayerID() {
         return this.playerID;
     }
-
-    //Methods
-    /**
-     * The method to be instantiated when you subclass the Player class with
-     * your specific type of Player and filled in with logic to play your game.
-     */
-    public abstract void play();
-
-    /**
-     *The method to check whether a playerID is existed
-     * @param playerID the playerID to check
-     * @return if playerID is duplicated
-     */
+    public Sequence getSequence(){
+        return this.sequence;
+    }
+    public boolean[] getBoolSequence(){
+        return bool_sequence;
+    }
+    public boolean getWhat(int i){
+        return bool_sequence[i];
+    }
+    
+    
     public static boolean isDuplicate(String playerID) {
 
         for (int i = 0; i < playerName.size(); i++) {
@@ -70,13 +53,6 @@ public abstract class Player {
         } 
         return false;
     }
-
-    /**
-     * The method to check whether a playerID is validated
-     *
-     * @param playerID the playerID to check
-     * @return if playerID is validated
-     */
     public static boolean isValid(String playerID) {
         for (int i = 0; i < playerID.length(); i++) {
             char newName = playerID.charAt(i);
@@ -88,17 +64,34 @@ public abstract class Player {
         }
         return true;
     }
-
-    /**
-     * The method is to add validated player name into ArrayList playerName
-     * 
-     * @param playerID 
-     */
     public void addName(String playerID) {
         playerName.add(playerID);
     }
     
     
     
-
+    public boolean checkSequence(boolean[] sequence){
+    //the sequence will always have 10 spots to be checked (ace ~ 10)
+    int sequenceNum = 0;
+    for(int i = 0; i < 10; i++){
+        if (sequence[i] == true)
+            sequenceNum += 1;
+    }
+    // checks if the number of spots filled(true) adds up to 10.
+    // if it does add up to 10, that means that player has won.
+    if (sequenceNum == 10)
+        return true;
+    // if not, return false (nobody won),
+    else
+        return false;
+    }
+    
+    
+    public void authenticatePlacement(boolean[] sequence, int spot){
+    if (sequence[spot+1] == true)
+        throw new IllegalArgumentException("This spot has already been filled. You cannot fill the same spot twice.");
+    else
+        System.out.println("You have decided to fill spot # " + spot);
+        sequence[spot] = true;
+    }
 }

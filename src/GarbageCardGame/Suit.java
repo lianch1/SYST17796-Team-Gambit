@@ -1,12 +1,9 @@
-package GarbageCardGame;
-
-/**
- * This enumeration contains card suits
- * 
- * author: Cheng Lian 
- * Created: March 12, 2021 
- * Last updated: March 22, 2021
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+package GarbageCardGame;
 
 public enum Suit {
         //enum datafield: suits
