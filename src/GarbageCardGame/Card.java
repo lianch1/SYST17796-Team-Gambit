@@ -1,24 +1,20 @@
-package GarbageCardGame;
-
-/**
- * This class allows the creation of a card as well as ways to manipulate it
- * 
- * author: Cheng Lian 
- * Created: March 12, 2021 
- * Last updated: March 22, 2021
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-
+package GarbageCardGame;
 public class Card {
     
     private Value value;
     private Suit suit;
-    private boolean isFaceUp;
+    private boolean faceUp;
 
 // Card Constructor
     public Card(Value value, Suit suit) {
         this.value = value;
         this.suit = suit;
-        isFaceUp = true;
+        faceUp = true;
     }
     
 // getters and setters
@@ -36,7 +32,7 @@ public class Card {
 //toString method
     public String toString() {
         String txt = "";
-        if (isFaceUp){
+        if (faceUp){
             txt += "\n" + value.getValueString() + " of " + suit.printSuit();
             return txt;
         } else {
@@ -47,8 +43,8 @@ public class Card {
     
 //flip card method    
     public void flipCard(){
-        isFaceUp = !isFaceUp;
+        faceUp = !faceUp;
     }
+}
        
     
-}
