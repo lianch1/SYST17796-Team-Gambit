@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * @author Fei Wei
- * @author Jaeyoung
+ * @author Cheng Lian April 11, 2021
  */
 public class Player {
 
@@ -17,12 +17,13 @@ public class Player {
         score = 0;
     }
 
-    public int getScore() {
-        return score;
+    public void setScore(int score) {
+        this.score = score;
     }
-
-    public void setScore(int updateSore) {
-        this.score = updateSore;
+    
+    //updates the score of an existing player
+    public void updateScore(int index, int updateScore) {
+        players.get(index).setScore(updateScore);
     }
 
     public String getPlayerID() {
@@ -33,38 +34,24 @@ public class Player {
         players.add(playerID);
     }
 
-    //method for finding the index value of the existing player in the array: players 
-    public static int findPlayerIndex(String playerID) {
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    //method for finding the index value of the existing player in the array: players
+    //if player is found it will return the index value
+    //if player is not found then it will return -1
+    public int findPlayerIndex(String playerID) {
         int indexValue = -1;
         for (int i = 0; i < players.size(); i++) {
-            if (playerID.equals(players.get(i))) {
+            if (playerID.equals(players.get(i).getPlayerID())) {
                 indexValue = i;
                 break;
             }
         }
         return indexValue;
     }
-    //method for checking if the name entered is a duplicate
-    public static boolean isDuplicate(String playerID) {
 
-        for (int i = 0; i < players.size(); i++) {
-            if (playerID.equals(players.get(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-    //method for checking if the name entered is valid
-    public static boolean isValid(String playerID) {
-        for (int i = 0; i < playerID.length(); i++) {
-            char newName = playerID.charAt(i);
 
-            if (!(Character.isDigit(newName))
-                    && !(Character.isLetter(newName))) {
-                return false;
-            }
-        }
-        return true;
-    }
 
 }
