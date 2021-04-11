@@ -7,6 +7,7 @@ import java.util.Scanner;
  *
  * @author Jaeyoung
  * @author Cheng Lian April 10, 2021
+ * @author Fei Wei April 11, 2021
  */
 public class PlayerCards extends Deck {
 
