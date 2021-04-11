@@ -37,9 +37,6 @@ public class MyGarbage {
             }
         }
 
-        //testing to see if driver program will take existing object from array
-        //Player alex = new Player("Alex", 100);
-        //alex.addPlayer();
         //initialize the both player objects
         Player playerObject1 = new Player(player1Name, 0);
         Player playerObject2 = new Player(player2Name, 0);
