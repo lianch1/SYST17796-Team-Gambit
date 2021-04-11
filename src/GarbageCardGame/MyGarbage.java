@@ -130,7 +130,7 @@ public class MyGarbage {
         for (int i = 0; i < playerID.length(); i++) {
             char newName = playerID.charAt(i);
 
-            if (!(Character.isDigit(newName))
+            if (!(Character.isDigit(newName)) 
                     && !(Character.isLetter(newName))) {
                 System.err.println("Invalid name. Please try again!");
                 return false;
