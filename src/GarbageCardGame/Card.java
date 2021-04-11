@@ -1,55 +1,69 @@
 package GarbageCardGame;
 
 /**
+ * A class that models playing card Objects which has 52 cards in a deck without
+ * jokers.
+ *
+ *
  * @author dancye
  * @author Cheng Lian April 10, 2021
  */
 public class Card {
-    
+
     private Value value;
     private Suit suit;
     private boolean faceUp;
 
-// Card Constructor
+    /**
+     *
+     * @param value is used to initialize the value of value variable
+     * @param suit is used to initialize the value of suit variable
+     */
     public Card(Value value, Suit suit) {
         this.value = value;
         this.suit = suit;
         faceUp = true;
     }
-    
+
 // getters and setters
+    /**
+     * @return the value in integer
+     */
     public int getValueNumber() {
         return value.getValueNumber();
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return the value in string
      */
-    public String getValueString(){
+    public String getValueString() {
         return value.getValueString();
     }
 
     /**
-     * 
-     * @return 
+     * @return the suit
      */
     public String getSuit() {
         return suit.printSuit();
     }
 
+    /**
+     * @return faceUp is true
+     */
     public boolean isFaceUp() {
         return faceUp;
     }
-    
-//toString method
+
     /**
-     * 
-     * @return 
+     * A method to check whether the card is faced up and prompt players
+     *
+     * @return the txt to display the value and suit of a card or a message if
+     * card is faced down
      */
     public String toString() {
         String txt = "";
-        if (faceUp){
+        if (faceUp) {
             txt += "\n" + value.getValueString() + " of " + suit.printSuit();
             return txt;
         } else {
@@ -57,11 +71,11 @@ public class Card {
         }
         return txt;
     }
-    
-//flip card method    
-    public void flipCard(){
+
+    /**
+     * A method to flip cards
+     */
+    public void flipCard() {
         faceUp = !faceUp;
     }
 }
-       
-    
