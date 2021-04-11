@@ -15,7 +15,7 @@ import java.util.Random;
  * Last updated: March 22, 2021
  */
 
-// we are going to need to make 2 decks (one normal deck, and one for discard)
+
 public class Deck {
     
     private ArrayList<Card> deck;
