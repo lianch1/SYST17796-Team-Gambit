@@ -125,6 +125,8 @@ public class PlayerCards extends Deck {
                             } else {
                                 System.err.println("Wrong placement! Try again!");
                             }
+                        }else{
+                            System.err.println("*ERROR* Bad Input. Please enter (1-10) to replace or (d) to discard");
                         }
                     } catch (NumberFormatException e) {
                         System.err.println("*ERROR* Bad Input. Please enter (1-10) to replace or (d) to discard");
