@@ -74,8 +74,10 @@ public class PlayerCards extends Deck{
         
     }
     
+
+    
     //Player turn:    
-    public boolean turn(PlayerCards player, Deck deck, int playerNumber){
+    public boolean turn(PlayerCards player, Deck deck, String playerName){
         //scanner object
         Scanner input = new Scanner(System.in);
         //variable to store input
@@ -85,24 +87,32 @@ public class PlayerCards extends Deck{
         //variable to store if a player's turn is over
         boolean isTurnEnd = false;
         
+        //print color variables:
+        final String RESET = "\033[0m";
+        final String RED = "\033[0;31m";
+        final String BLUE = "\033[0;34m";
+        final String CYAN = "\033[0;36m";
+        
         //turn begins
-        System.out.println("***************** Player " + playerNumber + "'s turn *****************");
+        System.out.println("");
+        System.out.println(CYAN + "***************** " + playerName + "'s turn *****************" + RESET);
         Card playerDrawnCard = deck.drawCard();
         while (isTurnEnd == false) {
-            System.out.println("Player " + playerNumber + " cards are: " + player.showPlayerCard());
+            System.out.println(playerName + "'s cards are: " + player.showPlayerCard() + RESET);
             System.out.println("");
             if (isJackQueen(playerDrawnCard) == true) {
-                System.out.println("!!!!!!!!!!!!!!Player " + playerNumber + " drew a " + playerDrawnCard.getValueString() + " of " + playerDrawnCard.getSuit() + " and is discarded!!!!!!!!!!!!!!");
-                System.out.println("Player " + playerNumber + " turn ends");
+                System.out.println(RED + "!!!!!!!!!!!!!! " + playerName + " drew a " + playerDrawnCard.getValueString() + " of " + playerDrawnCard.getSuit() + " and is discarded!!!!!!!!!!!!!!" + RESET );
+                System.out.println(CYAN + playerName + "'s turn ends" + RESET);
                 isTurnEnd = true;
             } else {
-                System.out.println("Player " + playerNumber + " draws: " + playerDrawnCard.toString());
+                System.out.println( playerName + " draws: " + playerDrawnCard.toString());
                 System.out.println("");
-                System.out.println("Player " + playerNumber + " decision:");
+                System.out.println(playerName + "'s decision:");
                 System.out.println("Please enter the slot you would like to replace(1-10) or discard(d) followed by Enter");
                 playerChoice = input.nextLine();
                 if (playerChoice.equalsIgnoreCase("d")) {
-                    System.out.println("Player " + playerNumber + " turn ends");
+                    System.out.println(BLUE + playerName + "'s turn ends" + RESET);
+                    
                     isTurnEnd = true;
                 } else if (Integer.parseInt(playerChoice) >= 1 && Integer.parseInt(playerChoice) <= 10) {
 
