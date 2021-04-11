@@ -1,13 +1,11 @@
 package GarbageCardGame;
 
 /**
- * This enumeration contains card values
+ * An enum class that models the value in integer and string for playing card Objects. It has a value (note that Ace =
+ * 1, Jack -11, Queen =12, King = 13)
  * 
- * author: Cheng Lian 
- * Created: March 12, 2021 
- * Last updated: March 22, 2021
+ * @author Cheng Lian April 10, 2021
  */
-
 public enum Value {
     ACE(1, "Ace"),
     DEUCE(2, "Deuce"),
@@ -23,21 +21,32 @@ public enum Value {
     QUEEN(12, "Queen"),
     KING(13, "King");
     
-    //Private data fields
+    /**
+     * These field variable represent an integer value and a string value
+     */
     private final int valueNumber;
     private final String valueString;
     
-    //Constructor
+     /**
+     * Default constructor
+     * @param valueNumber is used to initialize the valueNumber
+     * @param valueString is used to initialize the valueString
+     */
     private Value(int valueNumber, String valueString){
         this.valueNumber = valueNumber;
         this.valueString = valueString;
     }
     
-    //methods
+  /**
+   * @return the value in integer 
+   */
     public int getValueNumber(){
         return valueNumber;
     }
     
+    /**
+     * @return the value in string
+     */
     public String getValueString(){
         return valueString;
     }
