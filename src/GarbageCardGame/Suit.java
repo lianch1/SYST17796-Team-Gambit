@@ -1,28 +1,35 @@
 package GarbageCardGame;
 
 /**
- * This enumeration contains card suits
- * 
- * author: Cheng Lian 
- * Created: March 12, 2021 
- * Last updated: March 22, 2021
+ An enum class that models the suits for playing card Objects. 
+ * It has a suit (clubs, hearts, spades, diamonds).
+ *
+ * @author Cheng Lian April 10, 2021
  */
-
 public enum Suit {
+    
         //enum datafield: suits
         CLUBS("Clubs"), 
         DIAMONDS("Diamonds"), 
         HEARTS("Hearts"), 
-        SPADES("Clubs");
+        SPADES("Spades");
         
+        /**
+         * This field variable represent a string suit
+         */
         private final String suitString;
         
-        // Constructor
+        /**
+         * Default constructor
+         * @param suitString 
+         */
         private Suit(String suitString){
             this.suitString = suitString;
     }
-        
-        //Public Method
+           
+        /**
+         * @return the suit
+         */
         public String printSuit(){
             return suitString;
         }
