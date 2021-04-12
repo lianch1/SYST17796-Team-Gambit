@@ -57,7 +57,7 @@ public class PlayerCards extends Deck {
      */
     public boolean checkSequence() {
         for (int i = 0; i < 10; i++) {
-            if (playerCards.get(i).getValueNumber() != i + 1 && playerCards.get(i).getValueNumber() != 13) {
+            if (playerCards.get(i).getValueNumber() != i + 1 && playerCards.get(i).getValueNumber() != 13 && playerCards.get(i).isFaceUp() == false) {
                 return false;
             }
         }
