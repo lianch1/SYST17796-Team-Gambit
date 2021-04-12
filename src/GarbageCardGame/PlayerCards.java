@@ -56,9 +56,15 @@ public class PlayerCards extends Deck {
      * @return false if player cards are not in order
      */
     public boolean checkSequence() {
+
         for (int i = 0; i < 10; i++) {
-            if (playerCards.get(i).getValueNumber() != i + 1 && playerCards.get(i).getValueNumber() != 13 && playerCards.get(i).isFaceUp() == false) {
+            if (playerCards.get(i).isFaceUp() == false) {
                 return false;
+            } else {
+                if (playerCards.get(i).getValueNumber() != (i + 1)
+                        && playerCards.get(i).getValueNumber() != 13) {
+                    return false;
+                }
             }
         }
         return true;
@@ -76,9 +82,10 @@ public class PlayerCards extends Deck {
         }
         return txt;
     }
-    
+
     /**
      * A method to check if the drawn card is Jack or Queen
+     *
      * @param drawnCard is used to store the drawn card
      * @return true if the card draw by player is Jack or Queen
      */
@@ -89,12 +96,14 @@ public class PlayerCards extends Deck {
             return false;
         }
     }
-    
+
     /**
      * A method to check if the player choice matches the slot number
+     *
      * @param drawnCard is used to store the drawn card
-     * @param slotNumber is used to store placement that player choose 
-     * @return true if the value of the card matches the slot number that choose by player
+     * @param slotNumber is used to store placement that player choose
+     * @return true if the value of the card matches the slot number that choose
+     * by player
      */
     public boolean checkPlayerPlacement(Card drawnCard, int slotNumber) {
         if (drawnCard.getValueNumber() == slotNumber || drawnCard.getValueNumber() == 13) {
@@ -103,5 +112,5 @@ public class PlayerCards extends Deck {
             return false;
         }
     }
-  
+
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * A class models the player object which contains both player name and score
  * This class also contains methods that allows for manipulation of the object.
  * Players are stored in an ArrayList players.
- * 
+ *
  * @author Fei Wei
  * @author Cheng Lian April 11, 2021
  */

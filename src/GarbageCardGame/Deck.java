@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This class allows the creation and manipulation of the deck
  *
- * author: Cheng Lian Created: March 12, 2021 Last updated: March 22, 2021
+ * @author: Cheng Lian Created: March 12, 2021 Last updated: March 22, 2021
  */
 public class Deck {
 
@@ -79,13 +79,13 @@ public class Deck {
         //System.out.println(drawnCard.toString());
         return drawnCard;
     }
-    
-     /**
+
+    /**
      * A method to check how many cards are in the deck
-     * 
+     *
      * @return the deck size
      */
-    public int getSize(){
+    public int getSize() {
         return deck.size();
     }
 
