@@ -12,10 +12,13 @@ import java.util.*;
  * @author Cheng Lian April 11, 2021
  */
 public class MyGarbage {
-
-    //colors for print
-    String GREEN = "\u001B[32m";
-    String RESET = "\u001B[0m";
+    
+    /**
+     * These field variables stores String colors
+     */
+    final String GREEN = "\u001B[32m";
+    final String RESET = "\u001B[0m";
+    final String PURPLE = "\033[0;35m";
     
     /**
      *  A method to start the Garbage Game
@@ -101,15 +104,12 @@ public class MyGarbage {
             boolean player2Won = false;
 
             //initializes player turns, starting with player 1
-            while (player1Won == false && player2Won == false) {
+            while (player1Won == false && player2Won == false && d1.getSize() != 0) {
                 player1Won = turn(player1, d1, player1Name);
                 player2Won = turn(player2, d1, player2Name);
             }
 
-            // Winner declaration and updates score
-            final String PURPLE = "\033[0;35m";
-            final String RESET = "\033[0m";
-            
+            // Winner declaration and updates score    
             if (player1Won == true && player2Won == true) {
                 System.out.println(PURPLE + "***************** " + "Both " + player1Name + " and " + player2Name + " Won!!!!" + "*****************" + RESET);
                 playerObject1.setScore(playerObject1.getScore() + 1);
@@ -122,6 +122,8 @@ public class MyGarbage {
             } else if (player2Won == true) {
                 System.out.println(PURPLE + "***************** " + player2Name + " Won!!!!" + "*****************" + RESET);
                 playerObject2.setScore(playerObject2.getScore() + 1);
+            } else if (d1.getSize() == 0){
+                System.out.println("No one wins!");
             }
 
             //print player scores:
@@ -183,6 +185,7 @@ public class MyGarbage {
         System.out.println("    1. Take the drawn card and place it in the slot number that matches the card's \n\tvalue. (ie: 5 of hearts can be placed into 5th slot)");
         System.out.println("    2. Discard the drawn card and end their turn.\n");
         System.out.println("Once a card is replaced, and the player is able to place it down again as if \nthey just drew it.\n");
+        System.out.println("If the deck runs out of cards, the game will end and no one wins.\n");
         System.out.println("There are 2 Exceptions to the rules explained above:\n");
         System.out.println("    1. If the player draws a queen/jack, they are automatically discarded and the\n\tplayer's turn ends.");
         System.out.println("    2. King is treated as a wild card and can be placed in any slot\n");
@@ -202,6 +205,7 @@ public class MyGarbage {
     }
     
      /**
+     * A method that that allows each player to take their turn
      * 
      * @param playerCard is used to store the player's 10 cards
      * @param deck is the deck that the players draw from
@@ -223,13 +227,13 @@ public class MyGarbage {
         final String RED = "\033[0;31m";
         final String CYAN = "\033[0;36m";
 
-        //turn begins
+        //turn begins 
         System.out.println("");
         System.out.println(CYAN + "***************** " + playerName + "'s turn *****************" + RESET);
         
         Card playerDrawnCard = deck.drawCard();
         
-        while (isTurnEnd == false) {
+        while (isTurnEnd == false && deck.getSize() != 0) {
             System.out.println(playerName + "'s cards are: " + playerCard.showPlayerCard() + RESET);
             System.out.println("");
             
@@ -258,7 +262,7 @@ public class MyGarbage {
                         
                         else if (playerChoice.equalsIgnoreCase("d")) {
 
-                            System.out.println(CYAN + playerName + "'s turn ends" + RESET);
+                            System.out.println(CYAN + playerName + "'s turn ends" + RESET);                            
                             isTurnEnd = true;
                             
                         } else if (Integer.parseInt(playerChoice) >= 1 && Integer.parseInt(playerChoice) <= 10) {
