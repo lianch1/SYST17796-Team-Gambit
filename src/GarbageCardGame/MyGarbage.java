@@ -13,6 +13,10 @@ import java.util.*;
  */
 public class MyGarbage {
 
+    //colors for print
+    String GREEN = "\u001B[32m";
+    String RESET = "\u001B[0m";
+    
     /**
      *  A method to start the Garbage Game
      */
@@ -20,6 +24,20 @@ public class MyGarbage {
 
         Scanner input = new Scanner(System.in);
 
+        //greets the user and provide help 
+        boolean canStartGame = false;
+        while (canStartGame == false) {
+            welcome();
+            String playerInput = input.nextLine();
+            if (playerInput.equalsIgnoreCase("help")) {
+                help();
+            } else {
+                canStartGame = true;
+            }
+        }
+        
+        
+        
         //initialize player name variables
         String player1Name = "";
         String player2Name = "";
@@ -84,8 +102,8 @@ public class MyGarbage {
 
             //initializes player turns, starting with player 1
             while (player1Won == false && player2Won == false) {
-                player1Won = player1.turn(player1, d1, player1Name);
-                player2Won = player2.turn(player2, d1, player2Name);
+                player1Won = turn(player1, d1, player1Name);
+                player2Won = turn(player2, d1, player2Name);
             }
 
             // Winner declaration and updates score
@@ -158,10 +176,114 @@ public class MyGarbage {
      * A method to show game instruction when player needs
      */
     public void help(){
+        System.out.println(GREEN + "*********************************** How to play ***********************************" + RESET);
+        System.out.println("At the start of the game, the 2 players will be dealt 10 face down cards each \nand the cards are placed in their individual slots: 1-10\n");
+        System.out.println("Players will take turns drawing cards from the deck to replace the cards in \ntheir individual slots.\n");
+        System.out.println("Once the player draws a card, they have 2 options:\n");
+        System.out.println("    1. Take the drawn card and place it in the slot number that matches the card's \n\tvalue. (ie: 5 of hearts can be placed into 5th slot)");
+        System.out.println("    2. Discard the drawn card and end their turn.\n");
+        System.out.println("Once a card is replaced, and the player is able to place it down again as if \nthey just drew it.\n");
+        System.out.println("There are 2 Exceptions to the rules explained above:\n");
+        System.out.println("    1. If the player draws a queen/jack, they are automatically discarded and the\n\tplayer's turn ends.");
+        System.out.println("    2. King is treated as a wild card and can be placed in any slot\n");
+        System.out.println("To win the game, the player must be the first to assemble 10 cards in sequence.\nKing can substitute for any card.");
+        System.out.println(GREEN + "*********************************** Good Luck! ************************************" + RESET);
         System.out.println("");
     }
-       
     
+    /**
+     * A method to display the welcome message 
+     */   
+    public void welcome(){
+        System.out.println(GREEN + "********************************** Garbage Game ***********************************" + RESET);
+        System.out.println("Welcome to the Garbage game. Please enter (help) to access tutorial!");
+        System.out.println("Otherwise enter any other key to continue!");
+        System.out.println(GREEN + "***********************************************************************************" + RESET);
+    }
+    
+     /**
+     * 
+     * @param playerCard is used to store the player's 10 cards
+     * @param deck is the deck that the players draw from
+     * @param playerName is the name of players
+     * @return winner 
+     */
+    public boolean turn(PlayerCards playerCard, Deck deck, String playerName) {
+        //scanner object
+        Scanner input = new Scanner(System.in);
+        //variable to store input
+        String playerChoice = "";
+        //variable to store if player won
+        Boolean winner = false;
+        //variable to store if a player's turn is over
+        boolean isTurnEnd = false;
+
+        //print color variables:
+        final String RESET = "\033[0m";
+        final String RED = "\033[0;31m";
+        final String CYAN = "\033[0;36m";
+
+        //turn begins
+        System.out.println("");
+        System.out.println(CYAN + "***************** " + playerName + "'s turn *****************" + RESET);
+        
+        Card playerDrawnCard = deck.drawCard();
+        
+        while (isTurnEnd == false) {
+            System.out.println(playerName + "'s cards are: " + playerCard.showPlayerCard() + RESET);
+            System.out.println("");
+            
+            if (playerCard.isJackQueen(playerDrawnCard) == true) {
+                System.out.println(RED + "!!!!!!!!!!!!!! " + playerName + " drew a " + playerDrawnCard.getValueString() + " of " + playerDrawnCard.getSuit() + " and is discarded!!!!!!!!!!!!!!" + RESET);
+                System.out.println(CYAN + playerName + "'s turn ends" + RESET);
+                isTurnEnd = true;
+                
+            } else {
+                System.out.println(playerName + " draws: " + playerDrawnCard.toString());
+                System.out.println("");
+                System.out.println(playerName + "'s decision:");
+
+                boolean placementCorrect = false;
+                
+                while (placementCorrect == false && isTurnEnd == false) {
+                   
+                    try {
+                        System.out.println("Please enter the slot you would like to replace(1-10) or discard(d) followed by Enter");
+                        playerChoice = input.nextLine();
+                       
+                        if (playerChoice.equalsIgnoreCase("d")) {
+                            System.out.println(CYAN + playerName + "'s turn ends" + RESET);
+                            isTurnEnd = true;
+                            
+                        } else if (Integer.parseInt(playerChoice) >= 1 && Integer.parseInt(playerChoice) <= 10) {
+                     
+                            if (playerCard.checkPlayerPlacement(playerDrawnCard, Integer.parseInt(playerChoice)) == true) {
+                                Card placeholder = playerCard.replaceCard(playerDrawnCard, Integer.parseInt(playerChoice));
+                                playerDrawnCard = placeholder;
+                                placementCorrect = true;
+                                
+                            } else {
+                                System.err.println("Wrong placement! Try again!");
+                            }
+                        } else {
+                            System.err.println("*ERROR* Bad Input. Please enter (1-10) to replace or (d) to discard");
+                        }
+                    } 
+                    catch (NumberFormatException e) {
+                        System.err.println("*ERROR* Bad Input. Please enter (1-10) to replace or (d) to discard");
+                    }
+                }//end of while loop
+
+                if (playerCard.checkSequence() == true) {
+                    winner = true;
+                    isTurnEnd = true;
+                } else {
+                    winner = false;
+                }
+            }
+        }
+        return winner;
+    }
     
     
     /**
