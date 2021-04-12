@@ -3,7 +3,8 @@ package GarbageCardGame;
 import java.util.*;
 
 /**
- * This class allows the creation and manipulation of the deck
+ * This class allows the creation and manipulation of the deck which contains 
+ * 52 cards and no jokers. The cards are stored in the an arraylist.
  *
  * @author: Cheng Lian Created: March 12, 2021 Last updated: March 22, 2021
  */
@@ -12,14 +13,14 @@ public class Deck {
     private ArrayList<Card> deck;
 
     /**
-     * Default construction
+     * Default Deck constructor
      */
     public Deck() {
         deck = new ArrayList<Card>();
     }
 
     /**
-     * A method to create create card
+     * A method to populate the deck of 52 cards
      */
     public void createDeck() {
         for (Suit suit : Suit.values()) {
@@ -30,10 +31,10 @@ public class Deck {
     }
 
     /**
-     * A method to swap card positions in the deck
+     * A method to swap card positions of two cards in the deck
      *
-     * @param index1 is used to get card
-     * @param index2 is used to get card
+     * @param index1 is used to find first card
+     * @param index2 is used to find second card
      */
     public void swapCard(int index1, int index2) {
         Card placeholder;
@@ -81,7 +82,7 @@ public class Deck {
     }
 
     /**
-     * A method to check how many cards are in the deck
+     * A method to check how many cards are left in the deck
      *
      * @return the deck size
      */

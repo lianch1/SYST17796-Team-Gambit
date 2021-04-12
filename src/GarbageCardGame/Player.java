@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Player {
 
     private final String playerID; //unique ID
-    private int score; // unique score
+    private int score; // score
     public static ArrayList<Player> players = new ArrayList<Player>();
 
     public Player(String playerID, int score) {
