@@ -56,11 +56,12 @@ public class Card {
     }
 
     /**
-     * A method to check whether the card is faced up and prompt players
+     * A method to print the card Value and Suit or if it's faced down
      *
-     * @return the txt to display the value and suit of a card or a message if
-     * card is faced down
+     * @return the value and suit of a card or a message if faced up or returns
+     * the card is faced down
      */
+    @Override
     public String toString() {
         String txt = "";
         if (faceUp) {
