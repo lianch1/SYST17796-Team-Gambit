@@ -3,7 +3,7 @@ package GarbageCardGame;
 import java.util.*;
 
 /**
- * This class allows the creation and manipulation of the deck
+ * This class allows the creation and manipulation of the deck 
  *
  * author: Cheng Lian Created: March 12, 2021 Last updated: March 22, 2021
  */
