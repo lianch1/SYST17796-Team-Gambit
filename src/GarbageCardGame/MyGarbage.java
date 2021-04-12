@@ -13,8 +13,8 @@ import java.util.*;
  */
 public class MyGarbage implements Help {
 
-    private MyGarbageController myGarbageController;
-    private PlayerController playerController;
+    final private MyGarbageController myGarbageController;
+    final private PlayerController playerController;
 
     public MyGarbage() {
         myGarbageController = new MyGarbageController();
