@@ -63,7 +63,7 @@ public class Player {
      * not found then it will return -1
      *
      * @param playerID is used to compare
-     * @return indexValue
+     * @return indexValue that contains the playerID
      */
     public int getPlayerIndex(String playerID) {
         int indexValue = -1;

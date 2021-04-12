@@ -53,7 +53,7 @@ public class PlayerCards extends Deck {
      * sequence if any spot of the player card is the wild card: King, it passes
      * the check
      *
-     * @return false if player cards are not in order
+     * @return false if player cards are not in order, true if in order
      */
     public boolean checkSequence() {
 
@@ -73,7 +73,7 @@ public class PlayerCards extends Deck {
     /**
      * A method to show all the cards a player has
      *
-     * @return txt to show
+     * @return txt to show the 10 cards that a player has currently
      */
     public String showPlayerCard() {
         String txt = "";
@@ -87,7 +87,7 @@ public class PlayerCards extends Deck {
      * A method to check if the drawn card is Jack or Queen
      *
      * @param drawnCard is used to store the drawn card
-     * @return true if the card draw by player is Jack or Queen
+     * @return true if the card draw by player is Jack or Queen, false if not
      */
     public boolean isJackQueen(Card drawnCard) {
         if (drawnCard.getValueNumber() == 11 || drawnCard.getValueNumber() == 12) {
@@ -103,7 +103,7 @@ public class PlayerCards extends Deck {
      * @param drawnCard is used to store the drawn card
      * @param slotNumber is used to store placement that player choose
      * @return true if the value of the card matches the slot number that choose
-     * by player
+     * by player, false if it does not match
      */
     public boolean checkPlayerPlacement(Card drawnCard, int slotNumber) {
         if (drawnCard.getValueNumber() == slotNumber || drawnCard.getValueNumber() == 13) {

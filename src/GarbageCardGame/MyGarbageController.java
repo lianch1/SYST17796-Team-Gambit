@@ -46,11 +46,13 @@ public class MyGarbageController implements Help {
             player2Won = turn(player2, d1, player2Name);
         }
 
-        // Winner declaration and updates score    
+        // Winner declaration and updates 
+        // if both players completed their sequence on the same turn
         if (player1Won == true && player2Won == true) {
             System.out.println(PURPLE + "***************** " + "Both " + player1Name + " and " + player2Name + " Won!!!!" + "*****************" + RESET);
             playerObject1.setScore(playerObject1.getScore() + 1);
             playerObject2.setScore(playerObject2.getScore() + 1);
+            
 
         } else if (player1Won == true) {
             System.out.println(PURPLE + "***************** " + player1Name + " Won!!!!" + "*****************" + RESET);
@@ -59,6 +61,8 @@ public class MyGarbageController implements Help {
         } else if (player2Won == true) {
             System.out.println(PURPLE + "***************** " + player2Name + " Won!!!!" + "*****************" + RESET);
             playerObject2.setScore(playerObject2.getScore() + 1);
+        
+        //if deck ran out of cards and no one completed their sequence
 
         } else if (d1.getSize() == 0) {
             System.out.println("No one wins!");
@@ -76,7 +80,7 @@ public class MyGarbageController implements Help {
      * @param playerCard is used to store the player's 10 cards
      * @param deck is the deck that the players draw from
      * @param playerName is the name of players
-     * @return winner
+     * @return true if player wins
      */
     public boolean turn(PlayerCards playerCard, Deck deck, String playerName) {
 

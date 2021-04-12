@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * A driver class of the Garbage game. It contains a main method that starts the
  * game. It also interacts with the user to get inputs to pass through to the
- * Player & Game controllers
+ * Player & Game controllers. 
  *
  * @author Jaeyoung
  * @author Fei Wei April 11, 2021
@@ -99,7 +99,7 @@ public class MyGarbage implements Help {
      * A method for checking if the name entered is valid
      *
      * @param playerID the String to check
-     * @return false if name is not valid
+     * @return false if name is not valid, true if valid
      */
     public boolean isValid(String playerID) {
         if (playerID.isEmpty() == true) {
