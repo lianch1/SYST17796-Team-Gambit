@@ -59,7 +59,7 @@ public class Deck {
     /**
      * A method to show card to player
      *
-     * @return the txt
+     * @return the txt that contains the card value and suit
      */
     public String showCard() {
         String txt = "";
