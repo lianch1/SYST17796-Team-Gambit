@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * A driver class of the Garbage game. It contains a main method that starts the
  * game. It also interacts with the user to get inputs to pass through to the
- * Player & Game controllers
+ * Player & Game controllers. 
  *
  * @author Jaeyoung
  * @author Fei Wei April 11, 2021

@@ -2,7 +2,7 @@ package GarbageCardGame;
 
 /**
  * An enum class that models the value in integer and string for playing card
- * Objects. It has a value (note that Ace = 1, Jack -11, Queen =12, King = 13)
+ * Objects. It has a value (note that Ace = 1, Jack = 11, Queen = 12, King = 13)
  * 
  * @author Cheng Lian April 10, 2021
  * @author Fei Wei April 11, 2021
