@@ -99,7 +99,7 @@ public class MyGarbage implements Help {
      * A method for checking if the name entered is valid
      *
      * @param playerID the String to check
-     * @return false if name is not valid
+     * @return false if name is not valid, true if valid
      */
     public boolean isValid(String playerID) {
         if (playerID.isEmpty() == true) {
