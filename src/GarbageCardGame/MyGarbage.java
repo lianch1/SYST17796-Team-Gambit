@@ -248,6 +248,7 @@ public class MyGarbage {
                 while (placementCorrect == false && isTurnEnd == false) {
                    
                     try {
+
                         System.out.println("Please enter the slot you would like to replace(1-10), discard(d), or tutorial(help) followed by Enter!");
                         playerChoice = input.nextLine();
                        
@@ -256,6 +257,7 @@ public class MyGarbage {
                         }   
                         
                         else if (playerChoice.equalsIgnoreCase("d")) {
+
                             System.out.println(CYAN + playerName + "'s turn ends" + RESET);
                             isTurnEnd = true;
                             
