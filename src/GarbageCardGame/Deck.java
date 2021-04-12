@@ -79,5 +79,14 @@ public class Deck {
         //System.out.println(drawnCard.toString());
         return drawnCard;
     }
+    
+     /**
+     * A method to check how many cards are in the deck
+     * 
+     * @return the deck size
+     */
+    public int getSize(){
+        return deck.size();
+    }
 
 }
