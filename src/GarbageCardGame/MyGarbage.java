@@ -13,10 +13,12 @@ import java.util.*;
  */
 public class MyGarbage implements Help {
 
-    private MyGarbageController controller;
+    private MyGarbageController myGarbageController;
+    private PlayerController playerController;
 
     public MyGarbage() {
-        controller = new MyGarbageController();
+        myGarbageController = new MyGarbageController();
+        playerController = new PlayerController();
     }
 
     /**
@@ -65,8 +67,33 @@ public class MyGarbage implements Help {
             }
         }
 
-        //pass player names to controller
-        controller.initializePlayerObjects(player1Name, player2Name);
+        //stores player objects for both players
+        Player playerObject1 = playerController.initializePlayerObjects(player1Name);
+        Player playerObject2 = playerController.initializePlayerObjects(player2Name);
+
+        boolean playAgain = true;
+        while (playAgain == true) {
+
+            //calls the controller to starts the game
+            myGarbageController.garbageGame(playerObject1, playerObject2);
+
+            //prompts the user if they want to play again
+            String newGame = "";
+            while (!newGame.equalsIgnoreCase("yes") && !newGame.equalsIgnoreCase("no")) {
+
+                System.out.println("Would you like to play again? (yes/no)");
+                newGame = input.nextLine();
+
+                if (newGame.equalsIgnoreCase("no")) {
+                    playAgain = false;
+                } else if (newGame.equalsIgnoreCase("yes")) {
+                    playAgain = true;
+                } else {
+                    System.out.println("Please enter yes/no!");
+                }
+            }
+
+        }
 
     }
 
@@ -120,8 +147,8 @@ public class MyGarbage implements Help {
      */
     public void welcome() {
         System.out.println(GREEN + "********************************** Garbage Game ***********************************" + RESET);
-        System.out.println("Welcome to the Garbage game. Please enter (help) to access tutorial!");
-        System.out.println("Otherwise enter any other key to continue!");
+        System.out.println("Welcome to the Garbage game. Please enter (help) followed by Enter to access tutorial!");
+        System.out.println("Otherwise enter any other key followed by Enter to continue!");
         System.out.println(GREEN + "***********************************************************************************" + RESET);
     }
 
