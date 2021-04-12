@@ -10,8 +10,8 @@ package GarbageCardGame;
  */
 public class Card {
 
-    private Value value;
-    private Suit suit;
+    private final Value value;
+    private final Suit suit;
     private boolean faceUp;
 
     /**
