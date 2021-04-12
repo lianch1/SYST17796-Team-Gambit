@@ -53,6 +53,7 @@ public class MyGarbageController implements Help {
             playerObject1.setScore(playerObject1.getScore() + 1);
             playerObject2.setScore(playerObject2.getScore() + 1);
             
+
         } else if (player1Won == true) {
             System.out.println(PURPLE + "***************** " + player1Name + " Won!!!!" + "*****************" + RESET);
             playerObject1.setScore(playerObject1.getScore() + 1);
@@ -62,6 +63,7 @@ public class MyGarbageController implements Help {
             playerObject2.setScore(playerObject2.getScore() + 1);
         
         //if deck ran out of cards and no one completed their sequence
+
         } else if (d1.getSize() == 0) {
             System.out.println("No one wins!");
         }
