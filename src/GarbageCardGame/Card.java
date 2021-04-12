@@ -1,12 +1,11 @@
 package GarbageCardGame;
 
 /**
- * A class that models playing card Objects which has 52 cards in a deck without
- * jokers.
+ * A class that models playing card Objects 
  *
  * @author dancye
- * @author Cheng Lian April 10, 2021
  * @author Fei Wei April 11, 2021
+ * @author Cheng Lian April 12, 2021
  */
 public class Card {
 
@@ -49,18 +48,19 @@ public class Card {
     }
 
     /**
-     * @return faceUp is true
+     * @return faceUp
      */
     public boolean isFaceUp() {
         return faceUp;
     }
 
     /**
-     * A method to check whether the card is faced up and prompt players
+     * A method to print the card Value and Suit or if it's faced down
      *
-     * @return the txt to display the value and suit of a card or a message if
-     * card is faced down
+     * @return the txt: value and suit of a card or a message if faced up or returns
+     * the card is faced down
      */
+    @Override
     public String toString() {
         String txt = "";
         if (faceUp) {

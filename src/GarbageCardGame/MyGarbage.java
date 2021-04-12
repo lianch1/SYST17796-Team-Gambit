@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * A driver class of the Garbage game. It contains a main method that starts the
  * game. It also interacts with the user to get inputs to pass through to the
- * game.
+ * Player & Game controllers
  *
  * @author Jaeyoung
  * @author Fei Wei April 11, 2021
@@ -13,8 +13,8 @@ import java.util.*;
  */
 public class MyGarbage implements Help {
 
-    private MyGarbageController myGarbageController;
-    private PlayerController playerController;
+    final private MyGarbageController myGarbageController;
+    final private PlayerController playerController;
 
     public MyGarbage() {
         myGarbageController = new MyGarbageController();
@@ -92,9 +92,7 @@ public class MyGarbage implements Help {
                     System.out.println("Please enter yes/no!");
                 }
             }
-
         }
-
     }
 
     /**
