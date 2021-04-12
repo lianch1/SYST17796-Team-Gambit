@@ -92,9 +92,7 @@ public class MyGarbage implements Help {
                     System.out.println("Please enter yes/no!");
                 }
             }
-
         }
-
     }
 
     /**
