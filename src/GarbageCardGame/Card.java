@@ -4,7 +4,6 @@ package GarbageCardGame;
  * A class that models playing card Objects which has 52 cards in a deck without
  * jokers.
  *
- *
  * @author dancye
  * @author Cheng Lian April 10, 2021
  * @author Fei Wei April 11, 2021

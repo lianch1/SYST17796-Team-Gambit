@@ -3,14 +3,20 @@ package GarbageCardGame;
 import java.util.*;
 
 /**
- *
+ * A driver class of the Garbage game. It contains a main method that
+ * starts the game. It also interacts with the user to get inputs to pass through
+ * to the game. Also it will display outputs to the user. 
+ * 
  * @author Jaeyoung
  * @author Fei Wei April 11, 2021
  * @author Cheng Lian April 11, 2021
  */
 public class MyGarbage {
 
-    public void play() {
+    /**
+     *  A method to start the Garbage Game
+     */
+    private void play() {
 
         Scanner input = new Scanner(System.in);
 
@@ -18,10 +24,12 @@ public class MyGarbage {
         String player1Name = "";
         String player2Name = "";
 
-        //method for prompts the user to enter their names and checks if it's valid
+        /* The following logic will prompt the user for their names
+        and checks whether it's valid */
         for (int i = 1; i < 3; i++) {
             boolean isNameValid = false;
             String playerName = "";
+          
             while (isNameValid == false) {
                 System.out.println("Please enter a valid name for player " + i + "(Letters and numbers only): ");
                 playerName = input.nextLine();
@@ -37,15 +45,15 @@ public class MyGarbage {
             }
         }
 
-        //initialize the both player objects
+        // Initialize both player objects
         Player playerObject1 = new Player(player1Name, 0);
         Player playerObject2 = new Player(player2Name, 0);
 
-        //return player index if they exists already
+        // Return player index if they exists already
         int player1Index = playerObject1.getPlayerIndex(player1Name);
         int player2Index = playerObject2.getPlayerIndex(player2Name);
 
-        //checking if player already exists
+        // Checking if player already exists
         if (player1Index == -1) {
             playerObject1.addPlayer();
         } else {
@@ -80,16 +88,19 @@ public class MyGarbage {
                 player2Won = player2.turn(player2, d1, player2Name);
             }
 
-            //winner declaration and updates score
+            // Winner declaration and updates score
             final String PURPLE = "\033[0;35m";
             final String RESET = "\033[0m";
+            
             if (player1Won == true && player2Won == true) {
                 System.out.println(PURPLE + "***************** " + "Both " + player1Name + " and " + player2Name + " Won!!!!" + "*****************" + RESET);
                 playerObject1.setScore(playerObject1.getScore() + 1);
                 playerObject2.setScore(playerObject2.getScore() + 1);
+                
             } else if (player1Won == true) {
                 System.out.println(PURPLE + "***************** " + player1Name + " Won!!!!" + "*****************" + RESET);
                 playerObject1.setScore(playerObject1.getScore() + 1);
+                
             } else if (player2Won == true) {
                 System.out.println(PURPLE + "***************** " + player2Name + " Won!!!!" + "*****************" + RESET);
                 playerObject2.setScore(playerObject2.getScore() + 1);
@@ -102,8 +113,10 @@ public class MyGarbage {
             //prompts the user if they want to play again
             String newGame = "";
             while (!newGame.equalsIgnoreCase("yes") && !newGame.equalsIgnoreCase("no")) {
+                
                 System.out.println("Would you like to play again? (yes/no)");
                 newGame = input.nextLine();
+                
                 if (newGame.equalsIgnoreCase("no")) {
                     playAgain = false;
                 } else if (newGame.equalsIgnoreCase("yes")) {
@@ -117,7 +130,12 @@ public class MyGarbage {
         }
     }
 
-    //method for checking if the name entered is valid
+    /**
+     *  A method for checking if the name entered is valid
+     * 
+     * @param playerID the String to check
+     * @return false if name is not valid 
+     */
     public boolean isValid(String playerID) {
         if (playerID.isEmpty() == true) {
             System.err.println("Invalid name. Please try again!");
@@ -135,7 +153,21 @@ public class MyGarbage {
         }
         return true;
     }
-
+    
+    /**
+     * A method to show game instruction when player needs
+     */
+    public void help(){
+        System.out.println("");
+    }
+       
+    
+    
+    
+    /**
+     * Main method start from here
+     * @param args 
+     */
     public static void main(String[] args) {
         MyGarbage self = new MyGarbage();
         self.play();
