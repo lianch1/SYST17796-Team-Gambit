@@ -83,7 +83,6 @@ public class MyGarbage implements Help {
             //prompts the user if they want to play again
             String newGame = "";
             while (isYesNo(newGame) == false) {
-
                 System.out.println("Would you like to play again? (yes/no)");
                 newGame = input.nextLine();
                 if (isYesNo(newGame) == true) {
@@ -116,6 +115,7 @@ public class MyGarbage implements Help {
     /**
      * Method that validates user input when asked if they want to play a new game
      * 
+
      * @param newGame is the player choice 
      * @return true if user enters yes or no, false if anything else
      */
