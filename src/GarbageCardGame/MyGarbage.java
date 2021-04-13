@@ -115,6 +115,7 @@ public class MyGarbage implements Help {
     /**
      * Method that validates user input when asked if they want to play a new game
      * 
+
      * @param newGame is the player choice 
      * @return true if user enters yes or no, false if anything else
      */
