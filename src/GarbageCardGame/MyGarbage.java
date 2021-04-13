@@ -29,14 +29,17 @@ public class MyGarbage implements Help {
         Scanner input = new Scanner(System.in);
 
         //greets the user and provide help 
-        boolean canStartGame = false;
-        while (canStartGame == false) {
+        String playerInput = "";
+        boolean startGame = false;
+        while (startGame == false) {
             welcome();
-            String playerInput = input.nextLine();
-            if (playerInput.equalsIgnoreCase("help")) {
-                help();
-            } else {
-                canStartGame = true;
+            playerInput = input.nextLine();
+            if (isHelpStart(playerInput) == true) {
+                if (playerInput.equalsIgnoreCase("help")) {
+                    help();
+                } else if (playerInput.equalsIgnoreCase("start")) {
+                    startGame = true;
+                }
             }
         }
 
@@ -79,7 +82,7 @@ public class MyGarbage implements Help {
 
             //prompts the user if they want to play again
             String newGame = "";
-            while (!newGame.equalsIgnoreCase("yes") && !newGame.equalsIgnoreCase("no")) {
+            while (isYesNo(newGame) == false) {
 
                 System.out.println("Would you like to play again? (yes/no)");
                 newGame = input.nextLine();
@@ -88,13 +91,42 @@ public class MyGarbage implements Help {
                     playAgain = false;
                 } else if (newGame.equalsIgnoreCase("yes")) {
                     playAgain = true;
-                } else {
-                    System.out.println("Please enter yes/no!");
-                }
+                } 
             }
         }
     }
 
+    /**
+     * Method that validates user input when asked if they want help or start game
+     * 
+     * @param userInput is the player choice
+     * @return true if user enters help or start, false if anything else
+     */
+    public boolean isHelpStart(String userInput) {
+        if (userInput.equalsIgnoreCase("help") || userInput.equalsIgnoreCase("start")) {
+            return true;
+        } else {
+            System.err.println("Invalid input: Please enter help/start!");
+            return false;
+        }
+    }
+    
+    
+    /**
+     * Method that validates user input when asked if they want to play a new game
+     * 
+     * @param newGame is the player choice 
+     * @return true if user enters yes or no, false if anything else
+     */
+    public boolean isYesNo(String newGame){
+        if (newGame.equalsIgnoreCase("yes") || newGame.equalsIgnoreCase("no")){
+            return true;
+        }else{
+            System.err.println("Invalid input: Please enter yes/no!");
+            return false;
+        }
+    }
+    
     /**
      * A method for checking if the name entered is valid
      *
@@ -146,7 +178,7 @@ public class MyGarbage implements Help {
     public void welcome() {
         System.out.println(GREEN + "********************************** Garbage Game ***********************************" + RESET);
         System.out.println("Welcome to the Garbage game. Please enter (help) followed by Enter to access tutorial!");
-        System.out.println("Otherwise enter any other key followed by Enter to continue!");
+        System.out.println("Otherwise enter (start) followed by Enter to begin the game!");
         System.out.println(GREEN + "***********************************************************************************" + RESET);
     }
 

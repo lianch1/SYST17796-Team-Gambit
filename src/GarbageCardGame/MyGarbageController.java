@@ -53,7 +53,6 @@ public class MyGarbageController implements Help {
             playerObject1.setScore(playerObject1.getScore() + 1);
             playerObject2.setScore(playerObject2.getScore() + 1);
             
-
         } else if (player1Won == true) {
             System.out.println(PURPLE + "***************** " + player1Name + " Won!!!!" + "*****************" + RESET);
             playerObject1.setScore(playerObject1.getScore() + 1);
@@ -63,7 +62,6 @@ public class MyGarbageController implements Help {
             playerObject2.setScore(playerObject2.getScore() + 1);
         
         //if deck ran out of cards and no one completed their sequence
-
         } else if (d1.getSize() == 0) {
             System.out.println("No one wins!");
         }
@@ -80,7 +78,7 @@ public class MyGarbageController implements Help {
      * @param playerCard is used to store the player's 10 cards
      * @param deck is the deck that the players draw from
      * @param playerName is the name of players
-     * @return true if player wins
+     * @return true if player 
      */
     public boolean turn(PlayerCards playerCard, Deck deck, String playerName) {
 
@@ -119,12 +117,11 @@ public class MyGarbageController implements Help {
 
                 //player placement:
                 while (placementCorrect == false && isTurnEnd == false) {
-
-                    try {
-
-                        System.out.println("Please enter the slot you would like to replace(1-10), discard(d), or tutorial(help) followed by Enter!");
-                        playerChoice = input.nextLine();
-
+                                        
+                    System.out.println("Please enter the slot you would like to replace(1-10), discard(d), or tutorial(help) followed by Enter!");
+                    playerChoice = input.nextLine();
+                                      
+                    if (isPlayerChoiceValid(playerChoice) == true){
                         //if player wants (help)
                         if (playerChoice.equalsIgnoreCase("help")) {
                             help();
@@ -148,21 +145,45 @@ public class MyGarbageController implements Help {
                         } else {
                             displayTurnErrorMsg();
                         }
-                    } catch (NumberFormatException e) {
-                        displayTurnErrorMsg();
-                    }
-                }//end of while loop
-
+                    }    
                 //checks if player's 10 cards are in sequence
                 if (playerCard.checkSequence() == true) {
                     winner = true;
                     isTurnEnd = true;
                 } else {
                     winner = false;
+                    }
                 }
-            }
-        }//end of while loop
+            }//end of while loop        
+        }
         return winner;
+    }
+
+    /**
+     * 
+     * @param playerChoice is the user choice when taking their turn
+     * @return true if player's choice is valid, false if it's not
+     */
+    public boolean isPlayerChoiceValid(String playerChoice) {
+        try {
+            //if player wants (help)
+            if (playerChoice.equalsIgnoreCase("help")) {
+                return true;
+                //if player discards(d)
+            } else if (playerChoice.equalsIgnoreCase("d")) {
+                return true;
+                //if player enters an integer value (1-10)
+            } else if (Integer.parseInt(playerChoice) >= 1 && Integer.parseInt(playerChoice) <= 10) {
+                return true;
+            } else {
+                displayTurnErrorMsg();
+            }
+        } catch (NumberFormatException e) {
+            displayTurnErrorMsg();
+        } catch (Exception e) {
+            displayTurnErrorMsg();
+        }
+        return false;
     }
 
     /**
