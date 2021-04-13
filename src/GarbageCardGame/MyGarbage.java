@@ -86,16 +86,17 @@ public class MyGarbage implements Help {
 
                 System.out.println("Would you like to play again? (yes/no)");
                 newGame = input.nextLine();
-
-                if (newGame.equalsIgnoreCase("no")) {
-                    playAgain = false;
-                } else if (newGame.equalsIgnoreCase("yes")) {
-                    playAgain = true;
-                } 
+                if (isYesNo(newGame) == true) {
+                    if (newGame.equalsIgnoreCase("no")) {
+                        playAgain = false;
+                    } else if (newGame.equalsIgnoreCase("yes")) {
+                        playAgain = true;
+                    }
+                }
             }
         }
     }
-
+    
     /**
      * Method that validates user input when asked if they want help or start game
      * 
