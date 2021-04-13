@@ -81,11 +81,14 @@ public class MyGarbage implements Help {
             myGarbageController.garbageGame(playerObject1, playerObject2);
 
             //prompts the user if they want to play again
+            boolean isYesNoValid = false;
             String newGame = "";
-            while (isYesNo(newGame) == false) {
+
+            while (isYesNoValid == false) {
                 System.out.println("Would you like to play again? (yes/no)");
                 newGame = input.nextLine();
                 if (isYesNo(newGame) == true) {
+                    isYesNoValid = true;
                     if (newGame.equalsIgnoreCase("no")) {
                         playAgain = false;
                     } else if (newGame.equalsIgnoreCase("yes")) {
