@@ -83,6 +83,7 @@ public class MyGarbage implements Help {
             //prompts the user if they want to play again
             String newGame = "";
             while (isYesNo(newGame) == false) {
+
                 System.out.println("Would you like to play again? (yes/no)");
                 newGame = input.nextLine();
                 if (isYesNo(newGame) == true) {
